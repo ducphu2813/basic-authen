@@ -6,8 +6,10 @@ export default class WelcomeContent extends React.Component {
             <div className="row justify-content-md-center">
                 <div className="jumbotron jumbotron-fluid">
                     <div className="container">
-                        <h1 className="display-4">Basic Authentication with JWT</h1>
-                        <p className="lead">This is a simple web application that demonstrates the use of JWT for basic authentication.</p>
+                        <h1 className="display-4">Welcome</h1>
+                        <p className="lead">
+                            Login to see protected content
+                        </p>
                     </div>
                 </div>
             </div>

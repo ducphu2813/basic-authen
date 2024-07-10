@@ -6,12 +6,10 @@ export default class AuthContent extends React.Component {
         super(props);
         this.state = {
             data: [],
-
         }
     }
 
     componentDidMount() {
-
         request(
             "GET",
             "/messages/hello",

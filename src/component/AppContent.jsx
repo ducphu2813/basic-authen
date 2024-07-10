@@ -3,6 +3,7 @@ import WelcomeContent from "./WelcomeContent.jsx";
 import AuthContent from "./AuthContent.jsx";
 import LoginForm from "./LoginForm.jsx";
 import { request } from "./axios_helper.js";
+import {Buttons} from "./Buttons.jsx";
 
 class AppContent extends React.Component {
 
@@ -25,13 +26,13 @@ class AppContent extends React.Component {
         e.preventDefault();
         request(
             "POST",
-            "login",
+            "/login",
             {
                 username: username,
                 password: password
             }
         ).then((response) => {
-            this.setState({componentToShow: "message"});
+            this.setState({componentToShow: "messages"});
 
         }).catch((error) => {
             this.setState({componentToShow: "welcome"});
@@ -42,7 +43,7 @@ class AppContent extends React.Component {
         e.preventDefault();
         request(
             "POST",
-            "register",
+            "/register",
             {
                 firstName: firstName,
                 lastName: lastName,
@@ -50,7 +51,7 @@ class AppContent extends React.Component {
                 password: password
             }
         ).then((response) => {
-            this.setState({componentToShow: "message"});
+            this.setState({componentToShow: "messages"});
 
         }).catch((error) => {
             this.setState({componentToShow: "welcome"});
@@ -60,9 +61,9 @@ class AppContent extends React.Component {
     render() {
         return (
             <div>
-                {/*<Buttons login={this.login} logout={this.logout} />*/}
+                <Buttons login={this.login} logout={this.logout} />
                 {this.state.componentToShow === "welcome" && <WelcomeContent />}
-                {this.state.componentToShow === "message" && <AuthContent />}
+                {this.state.componentToShow === "messages" && <AuthContent />}
                 {this.state.componentToShow === "login" && <LoginForm onLogin={this.onLogin} onRegister={this.onRegister}/>}
             </div>
         )
